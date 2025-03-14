@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tech Society</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Additional styles */
+        .greeting-section {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .timeline-header {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-header h2 {
+            display: inline-block;
+            background-color: #fff;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+            font-size: 32px;
+        }
+        
+        .timeline-header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000;
+            z-index: 1;
+        }
+        
+        .timeline-dots {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-dots::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000;
+            z-index: 1;
+        }
+        
+        .dot {
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dot-info {
+            position: absolute;
+            top: 30px;
+            transform: translateX(-50%);
+            width: 120px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .gallery-section {
+            padding: 50px 0;
+        }
+        
+        .gallery-header {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .gallery-header h2 {
+            display: inline-block;
+            background-color: #fff;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+            font-size: 32px;
+        }
+        
+        .gallery-header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000;
+            z-index: 1;
+        }
+        
+        .gallery-slider {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0;
+        }
+        
+        .gallery-slider img {
+            display: inline-block;
+            height: 200px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-bar">
+        <img src="low-battery.png" alt="Battery Status" class="icon">
+        <img src="wifi.png" alt="Wifi Status" class="icon">
+        <div class="time-box">
+            <img src="rounded-rectangle (2).png" alt="Time Box" class="time-background">
+            <span id="time" class="time-text"></span>
+        </div>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <a href="index.html"><img src="logo white (1).png" alt="The Tech Society" class="logo"></a> 
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="navbar-container">
+                <div class="rounded-menu-bar">
+                    <!-- Menu Items -->
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item"><a class="nav-link" href="#about.html"><b>About</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#oasis"><b>Oasis</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#zines"><b>Zines</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#events"><b>Events</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#join"><b>Join Us</b></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Toggle Switch Section -->
+            <div class="toggle-container toggle-section bg-white">
+                <div class="form-check form-switch">
+                    <label class="switch">
+                        <input class="form-check-input" type="checkbox" id="ToggleSwitch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- search bar -->
+    <div class="searchbar">
+        <div class="container ">
+            <form class="d-flex" role="search">
+                <input 
+                class="form-control me-2" 
+                type="search" 
+                placeholder="Search" 
+                aria-label="Search">
+            </form>
+        </div>
+    </div><br>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Greeting Section -->
+        <section class="greeting-section">
+            <div class="container">
+                <h1>Greetings from The Tech Society</h1>
+                <p>Where innovation meets creativity. We publish monthly digital zines packed with relevant yet interesting content and build projects beneficial to our fellow peers.</p>
+                <p>Apart from these, our usual activities, We also join hands with other clubs to host interactive and useful events. We have weekly club meetings with some exciting discussions, debates, seminars, talent events, hackathons, field trips, project displays all outlining the convergence of your engineering skills and the world around us.</p>
+                <p>Whether you're into coding or creative design, there's a place for you! There are various roles available under tech and non-tech.</p>
+                <p>"Oh, captain My, captain" if you recognize this dialogue, creative role is your calling. You'll be designing the monthly zines, working on eye catching themes with your writing, art and other media.</p>
+                <p>Do Nolan's movies make you think? then technical roles are for you. You'll be building a timetable app or a quote generator, giving your insights on AI, or crafting an arduino fall detector for a nursing home.</p>
+                <p>Our goal is to build a community of engineers who working together to connect technical skills to global challenges and thus build a society that lifts each other up.</p>
+            </div>
+        </section>
+        
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="timeline-header">
+                    <h2>TIMELINE</h2>
+                </div>
+                
+                <div class="timeline-dots">
+                    <div class="dot">
+                        <div class="dot-info">
+                            <p><strong>Started</strong><br>3rd March 2024</p>
+                        </div>
+                    </div>
+                    <div class="dot">
+                        <div class="dot-info">
+                            <p><strong>First physical zine</strong><br>7th March 2024</p>
+                        </div>
+                    </div>
+                    <div class="dot">
+                        <div class="dot-info">
+                            <p><strong>Engineering Blueprint</strong><br>25th May 2024</p>
+                        </div>
+                    </div>
+                    <div class="dot">
+                        <div class="dot-info">
+                            <p><strong>Core team formation</strong><br>14th Oct 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2>GALLERY</h2>
+                </div>
+                
+                <div class="gallery-slider">
+                    <img src="animation/1.jpeg" alt="Gallery Image 1">
+                    <img src="animation/2.jpeg" alt="Gallery Image 2">
+                    <img src="animation/3.jpeg" alt="Gallery Image 3">
+                    <img src="animation/4.jpeg" alt="Gallery Image 4">
+                    <img src="animation/5.jpeg" alt="Gallery Image 5">
+                    <img src="animation/6.jpeg" alt="Gallery Image 6">
+                    <img src="animation/7.jpeg" alt="Gallery Image 7">
+                    <img src="animation/8.jpeg" alt="Gallery Image 8">
+                    <img src="animation/9.jpeg" alt="Gallery Image 9">
+                    <img src="animation/10.jpeg" alt="Gallery Image 10">
+                    <img src="animation/11.jpeg" alt="Gallery Image 11">
+                    <img src="animation/12.jpeg" alt="Gallery Image 12">
+                    <img src="animation/13.jpeg" alt="Gallery Image 13">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer bg-black text-white py-4">
+        <div class="container d-flex justify-content-center align-items-center">
+            <h4 class="me-3 mb-0"><b>Follow Us On: </b></h4>
+            <a href="#" class="text-white me-3">
+                <img src="instagram (1).png" alt="Instagram">
+            </a>
+            <a href="#" class="text-white me-3">
+                <img src="social (1).png" alt="LinkedIn">
+            </a>
+            <a href="#" class="text-white">
+                <img src="gmail (1).png" alt="Email">
+            </a>
+        </div>
+    </footer>
+    
+    <!-- JS for Dark Mode -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggleSwitch = document.getElementById('ToggleSwitch');
+        
+        // Check for saved theme preference
+        if(localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+        }
+        
+        // Toggle theme when switch is clicked
+        toggleSwitch.addEventListener('change', function() {
+            if(this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+        
+        // Scrolling animation for gallery
+        setInterval(function() {
+            const gallery = document.querySelector('.gallery-slider');
+            if (gallery) {
+                if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
+                    gallery.scrollLeft = 0;
+                } else {
+                    gallery.scrollLeft += 5;
+                }
+            }
+        }, 30);
+    });
+    </script>
+</body>
+</html>
