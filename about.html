@@ -155,9 +155,9 @@
                 <div class="rounded-menu-bar">
                     <!-- Menu Items -->
                     <ul class="nav justify-content-center">
-                        <li class="nav-item"><a class="nav-link" href="#about.html"><b>About</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html"><b>About</b></a></li>
                         <li class="nav-item"><a class="nav-link" href="#oasis"><b>Oasis</b></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#zines"><b>Zines</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="zines.html"><b>Zines</b></a></li>
                         <li class="nav-item"><a class="nav-link" href="#events"><b>Events</b></a></li>
                         <li class="nav-item"><a class="nav-link" href="#join"><b>Join Us</b></a></li>
                     </ul>
@@ -301,16 +301,20 @@
         });
         
         // Scrolling animation for gallery
-        setInterval(function() {
-            const gallery = document.querySelector('.gallery-slider');
-            if (gallery) {
-                if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
-                    gallery.scrollLeft = 0;
-                } else {
-                    gallery.scrollLeft += 5;
-                }
+    setInterval(function () {
+        const gallery = document.querySelector('.gallery-slider');
+        if (gallery) {
+            // Check if the slider has reached the end
+            if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
+                // Reset scroll position to the beginning
+                gallery.scrollLeft = 0;
+            } else {
+                // Incrementally scroll
+                gallery.scrollLeft += 5;
             }
-        }, 30);
+        }
+    }, 30);
+
     });
     </script>
 </body>
