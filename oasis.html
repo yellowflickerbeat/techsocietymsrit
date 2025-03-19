@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Society</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        
+        
+        
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            padding: 20px;
+        }
+        
+        .content-left {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .content-right {
+            flex: 1;
+            padding-left: 20px;
+        }
+        
+        /* Secret Drop Section */
+        .secret-drop {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            align-items: left;
+        }
+        
+        .secret-drop h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .secret-input {
+            width: 100%;
+            height: 150px;
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        
+        .drop-btn {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 25px;
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        
+        /* Audio Player */
+        .audio-player {
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .audio-player img {
+
+            width: 40%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .audio-controls button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .progress {
+            width: 50%;
+            height: 100%;
+            background-color: #000;
+            border-radius: 5px;
+        }
+        
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+        
+        /* Club Content */
+        .club-content {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .club-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .club-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            margin-top: 20px;
+        }
+        
+        .image-gallery img {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        
+        
+        
+        
+        
+        
+        /* Dinosaur GIF section */
+        .dinosaur-gif {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .dinosaur-gif img {
+            max-width: 55%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <img src="low-battery.png" alt="Battery Status" class="icon">
+        <img src="wifi.png" alt="Wifi Status" class="icon">
+        <div class="time-box">
+            <img src="rounded-rectangle (2).png" alt="Time Box" class="time-background">
+            <span id="time" class="time-text">12:34</span>
+        </div>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <a href="index.html"><img src="logo white (1).png" alt="The Tech Society" class="logo"></a> 
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="navbar-container">
+                <div class="rounded-menu-bar">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item"><a class="nav-link" href="about.html"><b>About</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="oasis.html"><b>Oasis</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="zines.html"><b>Zines</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="events.html"><b>Events</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="joinus.html"><b>Join Us</b></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Toggle Switch Section -->
+            <div class="toggle-container toggle-section bg-white">
+                <div class="form-check form-switch">
+                    <label class="switch">
+                        <input class="form-check-input" type="checkbox" id="ToggleSwitch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content-left">
+            <!-- Dinosaur GIF instead of Drop a Secret -->
+            <div class="dinosaur-gif">
+                <img src="gif.gif" alt="Animated Dinosaurs">
+            </div>
+            
+            <!-- Audio Player -->
+            <div class="audio-player">
+                <center><img src="music.webp" alt="Album Cover"></center>
+                <div class="time-display">
+                    
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="audio-controls">
+                    <button id="shuffle">⇄</button>
+                    <button id="prev">⏮</button>
+                    <button id="play">▶</button>
+                    <button id="next">⏭</button>
+                    <button id="repeat">🔁</button>
+                </div>
+                <audio id="audio-element" src="music.mp3"></audio>
+            </div><br><br>
+
+            <!-- Drop a Secret Box -->
+            <div class="secret-drop" style="margin-top: 20px;">
+            <h2 style="font-size: 18px;">Drop a Secret</h2>
+            <textarea class="secret-input" style="height: 100px;"></textarea>
+            <button class="drop-btn">Drop</button>
+            </div>
+        </div>
+
+        
+
+        
+        
+        <div class="content-right">
+            <!-- Club Content -->
+            <div class="club-content">
+                <h2>Indian Student Diversity Club Breakfast Tapestry</h2>
+                <p>It's a fantastic example of the broader Indian society, through breakfast traditions. India, land of unity in diversity, provides the widest array of breakfast items that would satiate hunger, but, beyond that, they would speak of rich cultural values and culinary heritage.</p>
+                <p>So while the south brags about its savoury delights of dosas, idlis, and vadas, the north boasts about parathas - fluffy and buttery breads that melt in your mouth. The west boasts of spicy Misal Pav while the east dishes out humble and hearty poha. A breakfast in each of these reflects the diversity in their regional history, tradition, and innovation. It implies much more than the ingredients it uses.</p>
+                <p>Breakfast options at the Student Diversity Club: an analogy of how the different tastes and preferences combine rather harmoniously. Each member brings their own background and contributes to a tapestry of varied experiences and perspectives. So while this club may be diverse, their members share one common vision- to form an inclusive, understanding community.</p>
+            </div>
+            
+            <!-- Image Gallery -->
+            <div class="image-gallery">
+                <a href="#" id="gallery-image-link">
+                    <img src="landscape.png" alt="Landscape View" id="gallery-image">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Drop a Secret Section (replacing events section) -->
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <h4><b>FOLLOW US ON:</b></h4>
+            <div class="social-icons">
+                <a href="#" class="text-white">
+                    <img src="instagram (1).png" alt="Instagram">
+                </a>
+                <a href="#" class="text-white">
+                    <img src="social (1).png" alt="LinkedIn">
+                </a>
+                <a href="#" class="text-white">
+                    <img src="gmail (1).png" alt="Email">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Audio Player Functionality
+        const audioElement = document.getElementById('audio-element');
+        const playButton = document.getElementById('play');
+        const progressBar = document.querySelector('.progress');
+        
+        // Initialize audio player
+        let isPlaying = false;
+        
+        playButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audioElement.pause();
+                playButton.textContent = '▶';
+            } else {
+                audioElement.play();
+                playButton.textContent = '⏸';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        audioElement.addEventListener('timeupdate', () => {
+            const progress = (audioElement.currentTime / audioElement.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+        
+        // Update current time in status bar
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('time').textContent = `${hours}:${minutes}`;
+        }
+        
+        // Update time initially and then every minute
+        updateTime();
+        setInterval(updateTime, 60000);
+        
+        // Change gallery image on click
+        const galleryImage = document.getElementById('gallery-image');
+        const galleryLink = document.getElementById('gallery-image-link');
+        
+        galleryLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Cycle through different images
+            const images = [
+                'https://via.placeholder.com/600x300',
+                'mountains.jpg',
+                'beach.jpg'
+            ];
+            const currentSrc = galleryImage.src;
+            const currentIndex = images.findIndex(src => currentSrc.includes(src));
+            const nextIndex = (currentIndex + 1) % images.length;
+            galleryImage.src = images[nextIndex];
+        });
+        
+        // Secret drop functionality
+        const dropButton = document.querySelector('.drop-btn');
+        const secretInput = document.querySelector('.secret-input');
+        
+        dropButton.addEventListener('click', () => {
+            if (secretInput.value.trim() !== '') {
+                alert('Your secret has been dropped!');
+                secretInput.value = '';
+            } else {
+                alert('Please enter a secret before dropping.');
+            }
+        });
+    </script>
+</body>
+</html>
