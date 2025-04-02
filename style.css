@@ -11,6 +11,12 @@
 .logo {
     height: 200px;
     width: 200px;
+    float: left;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: flex-start; /* Ensures content inside aligns to the left */
 }
 
 body {
@@ -403,3 +409,138 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Dark mode navbar */
+body.dark-mode .navbar {
+    background-color: #121212;
+}
+
+body.dark-mode .navbar .nav-link {
+    color: #fff;
+    
+}
+
+body.dark-mode .navbar .nav-link :hover{
+    color: #121212;
+    
+}
+
+body.dark-mode .rounded-menu-bar :hover {
+    color: #121212;
+}
+
+body.dark-mode .rounded-menu-bar {
+    background-color: #121212;
+}
+
+/* Dark mode search bar */
+body.dark-mode .searchbar input {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode .searchbar input::placeholder {
+    color: #aaa;
+}
+
+/* Dark mode toggle container */
+body.dark-mode .toggle-container {
+    background-color: #121212 !important;
+}
+
+/* Dark mode for greeting section */
+body.dark-mode .greeting-section {
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Dark mode for timeline section */
+body.dark-mode .timeline-section {
+    background-color: #121212;
+}
+
+body.dark-mode .timeline-header h2 {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .timeline-header::before,
+body.dark-mode .timeline-dots::before {
+    background-color: #555;
+}
+
+body.dark-mode .dot {
+    background-color: #fff;
+}
+
+body.dark-mode .dot-info {
+    color: #fff;
+}
+
+/* Dark mode for gallery section */
+body.dark-mode .gallery-section {
+    background-color: #121212;
+}
+
+body.dark-mode .gallery-header h2 {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .gallery-header::before {
+    background-color: #555;
+}
+
+/* Dark mode image captions or borders */
+body.dark-mode .gallery-slider img {
+    border: 1px solid #121212;
+}
+
+/* Dark mode footer adjustments */
+body.dark-mode .footer {
+    background-color: #121212 !important;
+}
+
+/* Adjust any other specific elements for the About page */
+body.dark-mode .about-content h2,
+body.dark-mode .about-content h3 {
+    color: #fff;
+}
+
+body.dark-mode .about-content .card {
+    background-color: #121212;
+    color: #f5f5f5;
+    border-color: #555;
+}
+
+body.dark-mode .about-content .card-header {
+    background-color: #121212;
+    border-color: #555;
+}
+
+/* Dark mode for team member profiles if present */
+body.dark-mode .team-member {
+    background-color: #121212;
+    border-color: #555;
+}
+
+body.dark-mode .team-member h4 {
+    color: #fff;
+}
+
+/* Smooth transition for dark mode toggle */
+body, body.dark-mode, 
+body .navbar, body.dark-mode .navbar,
+body .searchbar input, body.dark-mode .searchbar input,
+body .greeting-section, body.dark-mode .greeting-section,
+body .timeline-section, body.dark-mode .timeline-section,
+body .gallery-section, body.dark-mode .gallery-section,
+body .about-content, body.dark-mode .about-content {
+    transition: all 0.3s ease;
+}

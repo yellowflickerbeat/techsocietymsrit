@@ -27,7 +27,8 @@
       <div class="container-fluid d-flex align-items-center justify-content-between">
           <!-- Logo Section -->
           <div class="logo-section">
-            <a href="main.html"><img src="logo white (1).png" alt="The Tech Society" class="logo"></a>
+            <a href="index.html">
+                <img id="logo" src="logo white (1).png" alt="The Tech Society" class="logo"></a>
               
           </div>
 
@@ -148,7 +149,44 @@
         </a>
     </div>
 </footer>
+<!-- JS for Dark Mode -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const toggleSwitch = document.getElementById('ToggleSwitch');
+    const logo = document.getElementById('logo');
 
+    function updateLogo() {
+        if (document.body.classList.contains('dark-mode')) {
+            logo.src = "logo dark.png"; // Change to your dark mode logo
+        } else {
+            logo.src = "logo white (1).png"; // Change to your light mode logo
+        }
+    }
+
+    // Check for saved theme preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        toggleSwitch.checked = true;
+    }
+    updateLogo(); // Set correct logo on page load
+
+    // Toggle theme when switch is clicked
+    toggleSwitch.addEventListener('change', function () {
+        if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+        }
+        updateLogo(); // Change logo dynamically
+    });
+
+
+     
+
+    });
+    </script>
 
 <script src="main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

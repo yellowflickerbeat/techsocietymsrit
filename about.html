@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
     <style>
         /* Additional styles */
         .greeting-section {
-            background-color: #000;
+            background-color: #121212;
             color: #fff;
             padding: 50px 20px;
             text-align: left;
@@ -115,7 +114,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background-color: #000;
+            background-color: #121212;
             z-index: 1;
         }
         
@@ -131,6 +130,142 @@
             margin-right: 15px;
             border-radius: 5px;
         }
+        /* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Dark mode navbar */
+body.dark-mode .navbar {
+    background-color: #121212;
+}
+
+body.dark-mode .navbar .nav-link {
+    color: #fff;
+    
+}
+
+body.dark-mode .navbar .nav-link :hover{
+    color: #121212;
+    
+}
+
+body.dark-mode .rounded-menu-bar :hover {
+    color: #121212;
+}
+
+body.dark-mode .rounded-menu-bar {
+    background-color: #121212;
+}
+
+/* Dark mode search bar */
+body.dark-mode .searchbar input {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode .searchbar input::placeholder {
+    color: #aaa;
+}
+
+/* Dark mode toggle container */
+body.dark-mode .toggle-container {
+    background-color: #121212 !important;
+}
+
+/* Dark mode for greeting section */
+body.dark-mode .greeting-section {
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Dark mode for timeline section */
+body.dark-mode .timeline-section {
+    background-color: #121212;
+}
+
+body.dark-mode .timeline-header h2 {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .timeline-header::before,
+body.dark-mode .timeline-dots::before {
+    background-color: #555;
+}
+
+body.dark-mode .dot {
+    background-color: #fff;
+}
+
+body.dark-mode .dot-info {
+    color: #fff;
+}
+
+/* Dark mode for gallery section */
+body.dark-mode .gallery-section {
+    background-color: #121212;
+}
+
+body.dark-mode .gallery-header h2 {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .gallery-header::before {
+    background-color: #555;
+}
+
+/* Dark mode image captions or borders */
+body.dark-mode .gallery-slider img {
+    border: 1px solid #121212;
+}
+
+/* Dark mode footer adjustments */
+body.dark-mode .footer {
+    background-color: #121212 !important;
+}
+
+/* Adjust any other specific elements for the About page */
+body.dark-mode .about-content h2,
+body.dark-mode .about-content h3 {
+    color: #fff;
+}
+
+body.dark-mode .about-content .card {
+    background-color: #121212;
+    color: #f5f5f5;
+    border-color: #555;
+}
+
+body.dark-mode .about-content .card-header {
+    background-color: #121212;
+    border-color: #555;
+}
+
+/* Dark mode for team member profiles if present */
+body.dark-mode .team-member {
+    background-color: #121212;
+    border-color: #555;
+}
+
+body.dark-mode .team-member h4 {
+    color: #fff;
+}
+
+/* Smooth transition for dark mode toggle */
+body, body.dark-mode, 
+body .navbar, body.dark-mode .navbar,
+body .searchbar input, body.dark-mode .searchbar input,
+body .greeting-section, body.dark-mode .greeting-section,
+body .timeline-section, body.dark-mode .timeline-section,
+body .gallery-section, body.dark-mode .gallery-section,
+body .about-content, body.dark-mode .about-content {
+    transition: all 0.3s ease;
+}
+
     </style>
 </head>
 <body>
@@ -139,6 +274,7 @@
         <img src="wifi.png" alt="Wifi Status" class="icon">
         <div class="time-box">
             <img src="rounded-rectangle (2).png" alt="Time Box" class="time-background">
+            
             <span id="time" class="time-text"></span>
         </div>
     </div>
@@ -148,9 +284,11 @@
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <!-- Logo Section -->
             <div class="logo-section">
-                <a href="index.html"><img src="logo white (1).png" alt="The Tech Society" class="logo"></a> 
+                <a href="index.html">
+                    <img id="logo" src="logo white (1).png" alt="The Tech Society" class="logo">
+                </a> 
             </div>
-
+            
             <!-- Menu Items -->
             <nav class="navbar-container">
                 <div class="rounded-menu-bar">
@@ -281,26 +419,38 @@
     
     <!-- JS for Dark Mode -->
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const toggleSwitch = document.getElementById('ToggleSwitch');
-        
-        // Check for saved theme preference
-        if(localStorage.getItem('darkMode') === 'enabled') {
-            document.body.classList.add('dark-mode');
-            toggleSwitch.checked = true;
+    document.addEventListener("DOMContentLoaded", function () {
+    const toggleSwitch = document.getElementById('ToggleSwitch');
+    const logo = document.getElementById('logo');
+
+    function updateLogo() {
+        if (document.body.classList.contains('dark-mode')) {
+            logo.src = "logo dark.png"; // Change to your dark mode logo
+        } else {
+            logo.src = "logo white (1).png"; // Change to your light mode logo
         }
-        
-        // Toggle theme when switch is clicked
-        toggleSwitch.addEventListener('change', function() {
-            if(this.checked) {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-        
+    }
+
+    // Check for saved theme preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        toggleSwitch.checked = true;
+    }
+    updateLogo(); // Set correct logo on page load
+
+    // Toggle theme when switch is clicked
+    toggleSwitch.addEventListener('change', function () {
+        if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+        }
+        updateLogo(); // Change logo dynamically
+    });
+
+
         // Scrolling animation for gallery
     setInterval(function () {
         const gallery = document.querySelector('.gallery-slider');
@@ -320,3 +470,5 @@
     </script>
 </body>
 </html>
+
+
