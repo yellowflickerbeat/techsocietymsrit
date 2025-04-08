@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,147 +12,152 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .col-md-4 img {
-    max-width: 100%; /* Ensures images don't overflow */
-    width: 90%; /* Adjust as needed */
-    height: auto; /* Maintain aspect ratio */
-}
+            max-width: 100%;
+            width: 100%; /* Changed to 100% for mobile */
+            height: auto;
+        }
+
+        .navbar {
+            padding: 0.5rem 1rem; /* Reduced padding for mobile */
+        }
+
+        .navbar-container {
+            margin-left: 0; /* Remove left margin on mobile */
+        }
+
+        .rounded-menu-bar {
+            width: 100%; /* Full width on mobile */
+            margin-top: 0.5rem; /* Added spacing for mobile */
+        }
+
+        .nav-link {
+            padding: 0.5rem 0.75rem; /* Adjusted padding for mobile */
+        }
+
+        .toggle-container {
+            margin-left: 0.5rem; /* Adjusted spacing for mobile */
+        }
+
+        .footer {
+            text-align: center; /* Center align footer content on mobile */
+        }
     </style>
 </head>
 
 <body>
-    <!--<div class="status-bar">
-        <img src="low-battery.png" alt="Battery Status" class="icon">
-        <img src="wifi.png" alt="Wifi Status" class="icon">
-        <div class="time-box">
-            <img src="rounded-rectangle (2).png" alt="Time Box" class="time-background">
-            <span id="time" class="time-text"></span>
-        </div>
-    </div>-->
-    
-    
-        <!-- Navbar -->
-        <nav class="navbar">
-            <div class="container-fluid d-flex align-items-center justify-content-start">
-              <!-- Logo Section -->
-              <div class="logo-section">
+
+    <nav class="navbar">
+        <div class="container-fluid d-flex align-items-center justify-content-between"> <div class="logo-section">
                 <a href="index.html">
                     <img id="logo" src="logo white (1).png" alt="The Tech Society" class="logo">
                 </a>
-              </div>
-    
-              <!-- Menu Items -->
-              <nav class="navbar-container">
-            <div class="rounded-menu-bar">
-                <!-- Menu Items -->
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="nav-link" href="about.html"><b>About</b></a></li>
-                    <li class="nav-item"><a class="nav-link" href="oasis.html"><b>Oasis</b></a></li>
-                    <li class="nav-item"><a class="nav-link" href="zines.html"><b>Zines</b></a></li>
-                    <li class="nav-item"><a class="nav-link" href="events.html"><b>Events</b></a></li>
-                    <li class="nav-item"><a class="nav-link" href="joinus.html"><b>Join Us</b></a></li>
-                </ul>
             </div>
-        </nav>
-    
-              <!-- Toggle Switch Section -->
-              <div class="toggle-container toggle-section bg-white">
-                  <div class="form-check form-switch">
-                    <label class="switch">
-                      <input class="form-check-input" type="checkbox" id="ToggleSwitch">
-                      <span class="slider"></span>
-                    </label>
-                  </div>
-              </div>
-          </div>
-      </nav>
-    
-    
-           
-    
-          
-   <!-- search bar -->
-   
- <!-- body -->
- <main>
-    <section class="event-details">
-      <div class="event-gallery">
-          <div class="row mt-3 g-3">  <!-- Added Bootstrap gap class g-3 -->
-              <div class="col-md-4">
-                  <img src="collage/1.png" alt="Event Image 1" class="img-fluid gallery-img">
-              </div>
-              <div class="col-md-4">
-                  <img src="collage/2.png" alt="Event Image 2" class="img-fluid gallery-img">
-              </div>
-              <div class="col-md-4">
-                  <img src="collage/4.png" alt="Event Image 4" class="img-fluid gallery-img">
-              </div>
-              <div class="col-md-4">
-                  <img src="collage/5.png" alt="Event Image 5" class="img-fluid gallery-img">
-              </div>
-              <div class="col-md-4">
-                  <img src="collage/6.png" alt="Event Image 6" class="img-fluid gallery-img">
-              </div>
-              <div class="col-md-4">
-                  <img src="collage/7.png" alt="Event Image 7" class="img-fluid gallery-img">
-              </div>
-              
-          </div> 
-      </div>
-  </section>
-  <!-- JS for Dark Mode -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const toggleSwitch = document.getElementById('ToggleSwitch');
-    const logo = document.getElementById('logo');
 
-    function updateLogo() {
-        if (document.body.classList.contains('dark-mode')) {
-            logo.src = "logo dark.png"; // Change to your dark mode logo
-        } else {
-            logo.src = "logo white (1).png"; // Change to your light mode logo
-        }
-    }
+            <div class="d-flex align-items-center">
+                <nav class="navbar-container">
+                    <div class="rounded-menu-bar">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item"><a class="nav-link" href="about.html"><b>About</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="oasis.html"><b>Oasis</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="zines.html"><b>Zines</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="events.html"><b>Events</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="joinus.html"><b>Join Us</b></a></li>
+                        </ul>
+                    </div>
+                </nav>
 
-    // Check for saved theme preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        toggleSwitch.checked = true;
-    }
-    updateLogo(); // Set correct logo on page load
+                <div class="toggle-container toggle-section bg-white">
+                    <div class="form-check form-switch">
+                        <label class="switch">
+                            <input class="form-check-input" type="checkbox" id="ToggleSwitch">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
 
-    // Toggle theme when switch is clicked
-    toggleSwitch.addEventListener('change', function () {
-        if (this.checked) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode', 'disabled');
-        }
-        updateLogo(); // Change logo dynamically
-    });
+        </div>
+    </nav>
+
+    <main>
+        <section class="event-details">
+            <div class="event-gallery">
+                <div class="row mt-3 g-3">
+                    <div class="col-md-4">
+                        <img src="collage/1.png" alt="Event Image 1" class="img-fluid gallery-img">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="collage/2.png" alt="Event Image 2" class="img-fluid gallery-img">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="collage/4.png" alt="Event Image 4" class="img-fluid gallery-img">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="collage/5.png" alt="Event Image 5" class="img-fluid gallery-img">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="collage/6.png" alt="Event Image 6" class="img-fluid gallery-img">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="collage/7.png" alt="Event Image 7" class="img-fluid gallery-img">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toggleSwitch = document.getElementById('ToggleSwitch');
+                const logo = document.getElementById('logo');
+
+                function updateLogo() {
+                    if (document.body.classList.contains('dark-mode')) {
+                        logo.src = "logo dark.png"; // Change to your dark mode logo
+                    } else {
+                        logo.src = "logo white (1).png"; // Change to your light mode logo
+                    }
+                }
+
+                // Check for saved theme preference
+                if (localStorage.getItem('darkMode') === 'enabled') {
+                    document.body.classList.add('dark-mode');
+                    toggleSwitch.checked = true;
+                }
+                updateLogo(); // Set correct logo on page load
+
+                // Toggle theme when switch is clicked
+                toggleSwitch.addEventListener('change', function() {
+                    if (this.checked) {
+                        document.body.classList.add('dark-mode');
+                        localStorage.setItem('darkMode', 'enabled');
+                    } else {
+                        document.body.classList.remove('dark-mode');
+                        localStorage.setItem('darkMode', 'disabled');
+                    }
+                    updateLogo(); // Change logo dynamically
+                });
 
 
-     
 
-    });
-    </script>
+            });
+        </script>
 
-</body>
- 
+    </body>
 
-<!-- Footer -->
-<footer class="footer bg-black text-white py-4">
-    <div class="container d-flex justify-content-center align-items-center">
-        <h4 class="me-3 mb-0"><b>Follow Us On: </b></h4>
-        <a href="https://www.instagram.com/thetechsociety.rit?igsh=cjF4ZXQxZjN5ZWVm" class="text-white me-3">
-            <img src="instagram (1).png" alt="Instagram">
-        </a>
-        <a href="https://www.linkedin.com/company/thetechsocietyrit/" class="text-white me-3">
-            <img src="social (1).png" alt="LinkedIn">
-        </a>
-        <a href="thetechsocietyrit@gmail.com" class="text-white">
-            <img src="gmail (1).png" alt="Email">
-        </a>
-    </div>
-</footer>
+
+    <footer class="footer bg-black text-white py-4">
+        <div class="container d-flex flex-column align-items-center"> <h4 class="me-3 mb-3"><b>Follow Us On: </b></h4> <div class="d-flex justify-content-center">
+                <a href="https://www.instagram.com/thetechsociety.rit?igsh=cjF4ZXQxZjN5ZWVm" class="text-white me-3">
+                    <img src="instagram (1).png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/company/thetechsocietyrit/" class="text-white me-3">
+                    <img src="social (1).png" alt="LinkedIn">
+                </a>
+                <a href="thetechsocietyrit@gmail.com" class="text-white">
+                    <img src="gmail (1).png" alt="Email">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</html>
