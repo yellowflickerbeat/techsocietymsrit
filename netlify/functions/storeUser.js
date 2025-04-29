@@ -12,8 +12,8 @@ exports.handler = async function (event) {
 
   try {
     await client.connect();
-    const db = client.db("techsociety"); // Change to your DB name if needed
-    const collection = db.collection("users");
+    const db = client.db("FormInputs"); // Change to your DB name if needed
+    const collection = db.collection("Trial1");
 
     await collection.insertOne(data);
 
