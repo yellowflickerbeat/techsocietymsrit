@@ -78,6 +78,29 @@ function fileToBase64(file) {
         }
       });
       
+      //mongodb
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("userForm");
+      
+        if (form) {
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+      
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => (data[key] = value));
+      
+            const response = await fetch("/.netlify/functions/storeUser", {
+              method: "POST",
+              body: JSON.stringify(data),
+            });
+      
+            const result = await response.json();
+            alert(result.message || "Thank you for joining us!");
+            form.reset(); // optionally clear the form
+          });
+        }
+      });
       const result = await response.json();
       
       if (result.success) {
