@@ -1,48 +1,40 @@
 const { MongoClient } = require("mongodb");
 
-let cachedClient = null;
+// MongoDB URI - make sure it's added to your environment variables in Netlify
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri);
 
 exports.handler = async function (event) {
+  // Check if the HTTP method is POST
   if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: "Method Not Allowed" }),
-    };
+    return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  const uri = process.env.MONGO_URI;
-
-  if (!uri) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Missing MONGO_URI environment variable" }),
-    };
-  }
-
-  const data = JSON.parse(event.body || "{}");
+  // Parse the incoming request body
+  const data = JSON.parse(event.body);
 
   try {
-    if (!cachedClient) {
-      cachedClient = new MongoClient(uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      await cachedClient.connect();
-    }
+    // Connect to MongoDB
+    await client.connect();
+    const db = client.db("FormInputs"); // Replace with your DB name
+    const collection = db.collection("Trial1"); // Replace with your collection name
 
-    const db = cachedClient.db("techsociety"); // change "techsociety" if you used another DB name
-    const collection = db.collection("users");
-
+    // Insert the user data into the "users" collection
     await collection.insertOne(data);
 
+    // Return a success response
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "User info saved successfully." }),
     };
   } catch (err) {
+    // Handle any errors
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
     };
+  } finally {
+    // Ensure to close the connection after the operation
+    await client.close();
   }
 };
